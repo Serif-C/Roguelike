@@ -47,7 +47,7 @@ public class Combat : MonoBehaviour
         Rigidbody2D handRb = hand.GetComponent<Rigidbody2D>();
         if (handRb != null)
         {
-            handRb.velocity = direction * handSpeed;
+            handRb.linearVelocity = direction * handSpeed;
         }
     }
 }
