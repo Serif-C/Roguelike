@@ -1,0 +1,466 @@
+fileFormatVersion: 2
+guid: a1d8f64cd8d93974787707f4d60ef5e5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5412227973274632520
+    second: Lusaac - Copy_0
+  - first:
+      213: -1103168428240845897
+    second: Lusaac - Copy_1
+  - first:
+      213: -4556491778074239912
+    second: Lusaac - Copy_2
+  - first:
+      213: 5377169549760052121
+    second: Lusaac - Copy_3
+  - first:
+      213: -8209469360531466841
+    second: Lusaac - Copy_4
+  - first:
+      213: -826703523781470912
+    second: Lusaac - Copy_5
+  - first:
+      213: -4773077046040275461
+    second: Lusaac - Copy_6
+  - first:
+      213: -4522390791158836973
+    second: Lusaac - Copy_7
+  - first:
+      213: -6731299949561956546
+    second: Lusaac - Copy_8
+  - first:
+      213: 6879897343895333171
+    second: Lusaac - Copy_9
+  - first:
+      213: 8250739038395698842
+    second: Lusaac - Copy_10
+  - first:
+      213: 2623390601382328978
+    second: Lusaac - Copy_11
+  - first:
+      213: 3878427966834308079
+    second: Lusaac - Copy_12
+  - first:
+      213: -7471247327241032436
+    second: Lusaac - Copy_13
+  - first:
+      213: 5231040711411565438
+    second: Lusaac - Copy_14
+  - first:
+      213: -2511273870247138357
+    second: Lusaac - Copy_15
+  - first:
+      213: 7368165192698619313
+    second: Lusaac - Copy_16
+  - first:
+      213: -6005704304210391225
+    second: Lusaac - Copy_17
+  - first:
+      213: 3849109457271799331
+    second: Lusaac - Copy_18
+  - first:
+      213: 2692702788704781374
+    second: Lusaac - Copy_19
+  - first:
+      213: -487961195272951126
+    second: Lusaac - Copy_20
+  - first:
+      213: 1150356453586314701
+    second: Lusaac - Copy_21
+  - first:
+      213: -3003673128396290216
+    second: Lusaac - Copy_22
+  - first:
+      213: -5903112820869697156
+    second: Lusaac - Copy_23
+  - first:
+      213: 8897922682513947255
+    second: Lusaac - Copy_24
+  - first:
+      213: -223439038840420451
+    second: Lusaac - Copy_25
+  - first:
+      213: -7360566722210434523
+    second: Lusaac - Copy_26
+  - first:
+      213: -1316240736945101158
+    second: Lusaac - Copy_27
+  - first:
+      213: -5158184326911077542
+    second: Lusaac - Copy_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Lusaac - Copy_0
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 132
+        width: 180
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8be78816557e3e4b0800000000000000
+      internalID: -5412227973274632520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lusaac - Copy_1
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 131
+        width: 180
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b3474bc822c0b0f0800000000000000
+      internalID: -1103168428240845897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lusaac - Copy_2
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 131
+        width: 180
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85c95e18ed614c0c0800000000000000
+      internalID: -4556491778074239912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lusaac - Copy_3
+      rect:
+        serializedVersion: 2
+        x: 991
+        y: 131
+        width: 180
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99bbe7e473b8f9a40800000000000000
+      internalID: 5377169549760052121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lusaac - Copy_4
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 131
+        width: 180
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a5911bbc1b121e80800000000000000
+      internalID: -8209469360531466841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lusaac - Copy_5
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 131
+        width: 180
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04511727685f684f0800000000000000
+      internalID: -826703523781470912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lusaac - Copy_6
+      rect:
+        serializedVersion: 2
+        x: 1950
+        y: 131
+        width: 180
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf5d23927bf92cdb0800000000000000
+      internalID: -4773077046040275461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lusaac - Copy_7
+      rect:
+        serializedVersion: 2
+        x: 2270
+        y: 131
+        width: 180
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 311da7d398d3d31c0800000000000000
+      internalID: -4522390791158836973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lusaac - Copy_8
+      rect:
+        serializedVersion: 2
+        x: 2590
+        y: 131
+        width: 180
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3731cd1c5e9592a0800000000000000
+      internalID: -6731299949561956546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lusaac - Copy_9
+      rect:
+        serializedVersion: 2
+        x: 2910
+        y: 131
+        width: 180
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 339e80ade2e4a7f50800000000000000
+      internalID: 6879897343895333171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 64403bfb05d9ccf4e9c1d36dfcac8a60
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":300.0,"y":64.0},"gridSpriteOffset":{"x":54.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Lusaac - Copy_0: -5412227973274632520
+      Lusaac - Copy_1: -1103168428240845897
+      Lusaac - Copy_10: 8250739038395698842
+      Lusaac - Copy_11: 2623390601382328978
+      Lusaac - Copy_12: 3878427966834308079
+      Lusaac - Copy_13: -7471247327241032436
+      Lusaac - Copy_2: -4556491778074239912
+      Lusaac - Copy_3: 5377169549760052121
+      Lusaac - Copy_4: -8209469360531466841
+      Lusaac - Copy_5: -826703523781470912
+      Lusaac - Copy_6: -4773077046040275461
+      Lusaac - Copy_7: -4522390791158836973
+      Lusaac - Copy_8: -6731299949561956546
+      Lusaac - Copy_9: 6879897343895333171
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

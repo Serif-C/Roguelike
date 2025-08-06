@@ -36,13 +36,17 @@ public class Combat : MonoBehaviour
 
     void Update()
     {
-        anim.SetFloat("xInput", attackInput.x);
-        anim.SetFloat("yInput", attackInput.y);
+        anim.SetBool("isAttacking", true);
+
+        anim.SetFloat("xAtk_Input", attackInput.x);
+        anim.SetFloat("yAtk_Input", attackInput.y);
 
         if (attackInput != Vector2.zero)
         {
             Attack(attackInput.normalized);
         }
+
+        anim.SetBool("isAttacking", false);
     }
 
     void Attack(Vector2 direction)
