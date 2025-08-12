@@ -18,7 +18,9 @@ public class Combat : MonoBehaviour
     [SerializeField] private GameObject attackPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float handSpeed;
+    [SerializeField] private float attackSpeed = 1f;
     [SerializeField] Animator anim;
+
 
     private Vector2 attackInput;
     private InputSystem_Actions playerInput;
@@ -36,17 +38,19 @@ public class Combat : MonoBehaviour
 
     void Update()
     {
-        anim.SetBool("isAttacking", true);
-
         anim.SetFloat("xAtk_Input", attackInput.x);
         anim.SetFloat("yAtk_Input", attackInput.y);
 
         if (attackInput != Vector2.zero)
         {
+            anim.SetBool("isAttacking", true);
+
             Attack(attackInput.normalized);
         }
-
-        anim.SetBool("isAttacking", false);
+        else
+        {
+            anim.SetBool("isAttacking", false);
+        }
     }
 
     void Attack(Vector2 direction)

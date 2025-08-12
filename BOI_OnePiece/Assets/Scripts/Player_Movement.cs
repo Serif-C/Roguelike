@@ -35,6 +35,15 @@ public class Player_Movement : MonoBehaviour
 
         Vector2 movement = movementInput * movementSpeed * Time.deltaTime ;
 
+        if(movement != Vector2.zero)
+        {
+            anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
+        }
+
         transform.position += (Vector3) movement;
     }
 }
