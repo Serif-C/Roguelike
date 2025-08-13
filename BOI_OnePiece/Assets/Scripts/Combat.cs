@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 public class Combat : MonoBehaviour
 {
     /*
@@ -15,11 +16,15 @@ public class Combat : MonoBehaviour
      * Since attacks stretches, it should feel snappy, and have a lot of weight on impact.
      */
 
+    [Header("References")]
     [SerializeField] private GameObject attackPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float handSpeed;
-    [SerializeField] private float attackSpeed = 1f;
     [SerializeField] Animator anim;
+
+    [Header("Cooldown")]
+    [SerializeField] private float attackSpeed = 1f;
+    [SerializeField] private float attackStartTime = 0f;
 
 
     private Vector2 attackInput;
@@ -38,14 +43,26 @@ public class Combat : MonoBehaviour
 
     void Update()
     {
-        anim.SetFloat("xAtk_Input", attackInput.x);
-        anim.SetFloat("yAtk_Input", attackInput.y);
+        // attackSpeed = 1 is 1 Second, 2 = 0.5 Second, etc....
+        float attackCooldown = 1f / Mathf.Max(attackSpeed, 0.0001f);
+        anim.speed = attackSpeed;
 
-        if (attackInput != Vector2.zero)
+        if(attackStartTime > 0f)
         {
+            attackStartTime -= Time.deltaTime;
+        }
+
+        if(attackStartTime<= 0f && attackInput != Vector2.zero)
+        {
+            attackStartTime += Time.deltaTime;
+
+            anim.SetFloat("xAtk_Input", attackInput.x);
+            anim.SetFloat("yAtk_Input", attackInput.y);
             anim.SetBool("isAttacking", true);
 
             Attack(attackInput.normalized);
+
+            attackStartTime = attackCooldown;
         }
         else
         {
