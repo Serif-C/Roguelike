@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 985895964}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -436,9 +436,9 @@ MonoBehaviour:
   firePoint: {fileID: 117316775}
   handSpeed: 0
   anim: {fileID: 2145968617}
+  attackRange: 5
   attackSpeed: 1
   attackStartTime: 0
-  attackEndTime: 0
 --- !u!1 &2145968616
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,11 +16,12 @@ public class Combat : MonoBehaviour
      * Since attacks stretches, it should feel snappy, and have a lot of weight on impact.
      */
 
-    [Header("References")]
+    [Header("References & Stats")]
     [SerializeField] private GameObject attackPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float handSpeed;
     [SerializeField] Animator anim;
+    [SerializeField] private float attackRange = 5f;
 
     [Header("Cooldown")]
     [SerializeField] private float attackSpeed = 1f;
@@ -78,5 +79,15 @@ public class Combat : MonoBehaviour
         {
             handRb.linearVelocity = direction * handSpeed;
         }
+    }
+
+    public Vector2 GetAttackDirection()
+    {
+        return attackInput.normalized;
+    }
+
+    public float GetAttackRange()
+    {
+        return attackRange;
     }
 }
