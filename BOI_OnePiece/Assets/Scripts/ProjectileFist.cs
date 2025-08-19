@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ProjectileArm : MonoBehaviour
+public class ProjectileFist : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb2d;
     [SerializeField] private float thrust = 1f;
