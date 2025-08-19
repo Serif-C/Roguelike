@@ -17,21 +17,16 @@ public class FistProjectile : MonoBehaviour
         this.origin = origin;
         this.maxDistance = maxDistance;
         this.direction = direction.sqrMagnitude > 0 ? direction.normalized : Vector2.right;
+
+        // Cache start and set velocity now that we have everything
+        startPos = origin ? (Vector2)origin.position : (Vector2)transform.position;
+        rb2d.linearVelocity = this.direction * speed;   // <-- use velocity for Rigidbody2D
     }
 
     private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.gravityScale = 0f;
-    }
-
-    private void OnEnable()
-    {
-        // Cache starting position when it actually spawns
-        startPos = origin ? (Vector2)origin.position : (Vector2)transform.position;
-
-        // Set constant velocity once
-        rb2d.linearVelocity = direction * speed;
     }
 
     private void FixedUpdate()
@@ -53,6 +48,6 @@ public class FistProjectile : MonoBehaviour
     private void OnDestroy()
     {
         // Let owner clear the active fist reference so the line hides
-        //if (owner) owner.ClearFist(transform);
+        if (owner) owner.ClearFist(transform);
     }
 }

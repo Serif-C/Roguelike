@@ -18,6 +18,10 @@ public class Combat : MonoBehaviour
     private Vector2 attackInput;
     private InputSystem_Actions playerInput;
 
+    // NEW: reference to active fist
+    private Transform currentFist;
+    public Transform CurrentFist => currentFist;
+
     private void Awake()
     {
         playerInput = new InputSystem_Actions();
@@ -40,7 +44,7 @@ public class Combat : MonoBehaviour
             attackStartTime -= Time.deltaTime;
         }
 
-        if(attackStartTime<= 0f && attackInput != Vector2.zero)
+        if(attackStartTime <= 0f && attackInput != Vector2.zero)
         {
             attackStartTime += Time.deltaTime;
 
@@ -60,12 +64,20 @@ public class Combat : MonoBehaviour
 
     void Attack(Vector2 direction)
     {
-        GameObject hand = Instantiate(attackPrefab, firePoint ? firePoint.position : transform.position, Quaternion.identity);
-        Rigidbody2D handRb = hand.GetComponent<Rigidbody2D>();
-        if (handRb != null)
-        {
-            handRb.linearVelocity = direction * handSpeed;
-        }
+        var spawnPos = firePoint ? firePoint.position : transform.position;
+        GameObject fistGO = Instantiate(attackPrefab, spawnPos, Quaternion.identity);
+
+        // keep reference
+        currentFist = fistGO.transform;
+
+        var proj = fistGO.GetComponent<FistProjectile>();
+        if (proj) proj.Init(this, firePoint ? firePoint : transform, attackRange, direction);
+    }
+
+    // called by the projectile when it despawns/destroys
+    public void ClearFist(Transform fist)
+    {
+        if (currentFist == fist) currentFist = null;
     }
 
     public Vector2 GetAttackDirection()
