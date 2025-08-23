@@ -27,6 +27,7 @@ public class FistProjectile : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.gravityScale = 0f;
+        rb2d.freezeRotation = true;
     }
 
     private void FixedUpdate()

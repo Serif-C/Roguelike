@@ -3,31 +3,44 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 public class Combat : MonoBehaviour
 {
-    [Header("References & Stats")]
+    public enum ArmSide { Left = 0, Right = 1 }
+
+    [Header("References")]
     [SerializeField] private GameObject attackPrefab;
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private float handSpeed;
-    [SerializeField] Animator anim;
+    [SerializeField] private Transform leftFirePoint;
+    [SerializeField] private Transform rightFirePoint;
+    //[SerializeField] Animator anim;
+    [SerializeField] private Sprite[] punchSprites; // 0 = rightPunch, 1 = leftPunch
+
+    [Header("Stats")]
     [SerializeField] private float attackRange = 5f;
-
-    [Header("Cooldown")]
-    [SerializeField] private float attackSpeed = 1f;
-    [SerializeField] private float attackStartTime = 0f;
+    [SerializeField] private float attacksPerSecond = 5f;
 
 
+    //[Header("Cooldown")]
+    private float cooldownTimer = 0f;
     private Vector2 attackInput;
     private InputSystem_Actions playerInput;
 
-    // NEW: reference to active fist
+    // Active projectile + arm start for line renderer
     private Transform currentFist;
     public Transform CurrentFist => currentFist;
+    private Transform currentArmStart;
+    public Transform CurrentArmStart => currentArmStart;
+
+    // Which arm to use on the *next* attack:
+    private ArmSide nextArm = ArmSide.Right;
+    private SpriteRenderer sr;
+    private Sprite defaultSprite;
 
     private void Awake()
     {
         playerInput = new InputSystem_Actions();
-
         playerInput.Player.Attack.performed += ctx => attackInput = ctx.ReadValue<Vector2>();
         playerInput.Player.Attack.canceled += ctx => attackInput = Vector2.zero;
+
+        sr = GetComponentInChildren<SpriteRenderer>();
+        if (sr != null) defaultSprite = sr.sprite;
     }
 
     void OnEnable() => playerInput.Enable();
@@ -35,49 +48,88 @@ public class Combat : MonoBehaviour
 
     void Update()
     {
-        // attackSpeed = 1 is 1 Second, 2 = 0.5 Second, etc....
-        float attackCooldown = 1f / Mathf.Max(attackSpeed, 0.0001f);
-        anim.speed = attackSpeed;
+        if (cooldownTimer > 0f) cooldownTimer -= Time.deltaTime;
 
-        if(attackStartTime > 0f)
+        bool wantAttack = attackInput != Vector2.zero;
+
+        // Only fire if: player is holding a direction, cooldown ready, and no active fist
+        if (wantAttack && cooldownTimer <= 0f && currentFist == null)
         {
-            attackStartTime -= Time.deltaTime;
+            Vector2 dir = attackInput.normalized;
+            Attack(dir);
+            cooldownTimer = 1f / Mathf.Max(0.0001f, attacksPerSecond);
         }
 
-        if(attackStartTime <= 0f && attackInput != Vector2.zero)
+        // Only revert to default when we're truly idle (no fist AND no attack input)
+        if (currentFist == null && !wantAttack && sr != null)
         {
-            attackStartTime += Time.deltaTime;
-
-            anim.SetFloat("xAtk_Input", attackInput.x);
-            anim.SetFloat("yAtk_Input", attackInput.y);
-            anim.SetBool("isAttacking", true);
-
-            Attack(attackInput.normalized);
-
-            attackStartTime = attackCooldown;
-        }
-        else
-        {
-            anim.SetBool("isAttacking", false);
+            sr.sprite = defaultSprite;
         }
     }
 
     void Attack(Vector2 direction)
     {
-        var spawnPos = firePoint ? firePoint.position : transform.position;
-        GameObject fistGO = Instantiate(attackPrefab, spawnPos, Quaternion.identity);
+        /////////////////////////////////////////////////////////////////////////
+        ///choose which arm fires *this* time (flip after the fist finishes)
+        Transform armStart;
 
-        // keep reference
+        if (nextArm == ArmSide.Right)
+        {
+            armStart = rightFirePoint;
+            sr.sprite = punchSprites[0];
+        }
+        else
+        {
+            armStart = leftFirePoint;
+            sr.sprite = punchSprites[1];
+        }
+
+        if (armStart == null)
+        {
+            if (rightFirePoint != null)
+            {
+                armStart = rightFirePoint;
+                sr.sprite = punchSprites[0];
+            }
+            else
+            {
+                armStart = leftFirePoint;
+                sr.sprite = punchSprites[1];
+            }
+        }
+        /////////////////////////////////////////////////////////////////////////
+
+        //anim.SetInteger("PunchSide", (int)nextArm);
+        //anim.SetTrigger("Punch");
+        //anim.SetBool("HoldPunch", true);
+
+        // spawn fist
+        GameObject fistGO = Instantiate(attackPrefab, armStart.position, Quaternion.identity);
         currentFist = fistGO.transform;
+        currentArmStart = armStart;
 
+        // init projectile so it can fly & report back on destroy
         var proj = fistGO.GetComponent<FistProjectile>();
-        if (proj) proj.Init(this, firePoint ? firePoint : transform, attackRange, direction);
+        if (proj) proj.Init(this, armStart, attackRange, direction);
     }
 
     // called by the projectile when it despawns/destroys
     public void ClearFist(Transform fist)
     {
-        if (currentFist == fist) currentFist = null;
+        if (currentFist == fist)
+        {
+            currentFist = null;
+            currentArmStart = null;
+
+            // release hold pose
+            //anim.SetBool("HoldPunch", false);
+
+            // restore default sprite when attack truly ends
+            if (sr) sr.sprite = defaultSprite;
+
+            // flip to the other arm for the *next* attack
+            nextArm = (nextArm == ArmSide.Right) ? ArmSide.Left : ArmSide.Right;
+        }
     }
 
     public Vector2 GetAttackDirection()
